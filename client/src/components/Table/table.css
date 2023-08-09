@@ -1,0 +1,51 @@
+table {
+  background-color: rgba(214, 193, 179, 0.86);
+  width: 100rem;
+}
+
+th,
+tr,
+td {
+  border: 1px solid white;
+}
+
+.btn {
+  padding-inline: 9px;
+  background-color: rgba(164, 145, 130, 0.86);
+  padding-block: 3px;
+  margin-block: 10px;
+  color: white;
+  border-radius: 5px;
+}
+:hover.del {
+  background-color: rgba(138, 120, 107, 0.86);
+}
+:hover.edit {
+  background-color: rgba(138, 120, 107, 0.86);
+}
+.del,
+.edit {
+  background-color: rgba(107, 108, 138, 0.86);
+  margin-left: 15px;
+}
+:hover.btn-add {
+  background-color: rgba(132, 117, 105, 0.86);
+}
+
+:active.btn {
+  transform: scale(0.95);
+}
+
+.btn-add {
+  text-align: center;
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+  padding: 0.2rem;
+  width: 20%;
+}
+.btn-action {
+  display: flex;
+  background-color: aquamarine;
+  padding: 2rem;
+}

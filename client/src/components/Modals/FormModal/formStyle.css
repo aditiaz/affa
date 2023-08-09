@@ -1,0 +1,79 @@
+.form-wrapper {
+  font-size: 20px;
+  background-color: rgb(193, 202, 197);
+  max-width: 20rem;
+  width: 17rem;
+  min-width: 10rem;
+  height: 20rem;
+  position: relative;
+  top: 30%;
+  margin: auto;
+
+  border-radius: 5px;
+  padding: 1rem;
+}
+
+.form-add {
+  /* margin-inline: 3rem; */
+  width: 95%;
+  padding-block: 0.4rem;
+  /* background-color: white; */
+}
+.form-add label {
+  font-size: 1rem;
+}
+.form-add input {
+  font-size: 0.9rem;
+  height: 1.9rem;
+  padding: 0.5rem;
+  width: 100%;
+  margin-block: 0.5rem;
+  border-radius: 5px;
+}
+
+.form-add label,
+.form-add p,
+.form-add input {
+  color: rgb(96, 70, 11);
+}
+.form-add p {
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin-bottom: 0.7rem;
+}
+
+.btn-submit {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+.btn-submit button {
+  color: aliceblue;
+  padding-inline: 0.7rem;
+  border-radius: 5px;
+  font-size: 1rem;
+
+  height: 2rem;
+}
+
+.btn-submit .sub {
+  background-color: rgb(35, 187, 75);
+}
+.btn-submit .cancel {
+  background-color: rgb(215, 84, 51);
+}
+
+:hover.sub {
+  background-color: rgb(21, 149, 74);
+}
+:hover.cancel {
+  background-color: rgb(140, 42, 17);
+}
+
+:active.cancel {
+  transform: scale(0.95);
+}
+:active.sub {
+  transform: scale(0.95);
+}
