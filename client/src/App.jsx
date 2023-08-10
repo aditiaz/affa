@@ -17,10 +17,8 @@ function App() {
   const modalAdd = useSelector(state => state.user.modalAdd);
   const modalEdit = useSelector(state => state.user.modalEdit);
   const modalDelete = useSelector(state => state.user.modalDelete);
-  // const users = useSelector(state => state.user.allUsers);
   const id = useSelector(state => state.user.activeId);
 
-  // console.log(id);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchUsers());
