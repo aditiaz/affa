@@ -18,14 +18,16 @@ export const Table = ({ modalAdd, modalDelete }) => {
           Add Data
         </button>
         <table className="w-full  text-center  min-w-max">
-          <tr>
-            <th>No</th>
-            <th>Name</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>Address</th>
-            <th>Action</th>
-          </tr>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Name</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>Address</th>
+              <th>Action</th>
+            </tr>
+          </thead>
           <tbody>
             {users?.map((user, index) => {
               return (
