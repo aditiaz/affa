@@ -25,6 +25,9 @@ export const addContact = createAsyncThunk('user/addContact', async userData => 
     const res = await API.post('add-contact', userData);
     return res;
   } catch (error) {
+    if (error.response.data.code == 500) {
+      alert('Email Sudah Digunakan');
+    }
     console.log(error);
     throw error;
   }

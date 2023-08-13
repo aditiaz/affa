@@ -2,7 +2,18 @@ import React, { useState } from 'react';
 import formStyle from './formStyle.css';
 import { useDispatch } from 'react-redux';
 
-export const FormModal = ({ title, modal, showModal, addContact }) => {
+export const FormModal = ({
+  title,
+  modal,
+  showModal,
+  addContact,
+  formModalData = {
+    name: '',
+    phone: '',
+    email: '',
+    address: '',
+  },
+}) => {
   const dispatch = useDispatch();
 
   const [formData, setFormData] = useState({
@@ -37,33 +48,36 @@ export const FormModal = ({ title, modal, showModal, addContact }) => {
         <form onSubmit={handleSubmit} className="  form-add" action="">
           <p>{title}</p>
           <input
-            placeholder="Name"
+            placeholder={title === 'Edit Data' ? formModalData.name : 'Name'}
             type="text"
-            name="name"
             value={formData.name}
+            name="name"
             onChange={handleChange}
             id="name"
           />
           <input
-            placeholder="Phone"
+            placeholder={title === 'Edit Data' ? formModalData.phone : 'Phone'}
             type="text"
-            name="phone"
             value={formData.phone}
+            name="phone"
             onChange={handleChange}
             id="phone"
+            pattern="[0-9]*"
           />
           <input
-            placeholder="Email"
+            placeholder={title === 'Edit Data' ? formModalData.email : 'Email'}
+            value={formData.email}
             name="email"
             type="email"
-            value={formData.email}
             onChange={handleChange}
             id="email"
+            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
+            title="Enter a valid email address"
           />
           <input
-            placeholder="Address"
-            name="address"
+            placeholder={title === 'Edit Data' ? formModalData.address : 'Address'}
             value={formData.address}
+            name="address"
             onChange={handleChange}
             id="addres"
           />

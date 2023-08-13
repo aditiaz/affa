@@ -1,20 +1,39 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import table from './table.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { activeId } from '../../users/userSlice';
-import { toggleModalEdit, fetchUsers } from '../../users/userSlice';
+import { DeleteModal } from '../Modals/DeleteModal/DeleteModal';
+import { FormModal } from '../Modals/FormModal/FormModal';
+import {
+  toggleModalAdd,
+  toggleModalEdit,
+  toggleModalDelete,
+  addContact,
+  updateContact,
+  fetchUsers,
+} from '../../users/userSlice';
 
-export const Table = ({ modalAdd, modalDelete }) => {
+export const Table = () => {
   const dispatch = useDispatch();
+  const modalAdd = useSelector(state => state.user.modalAdd);
+  const modalDel = useSelector(state => state.user.modalDelete);
   const users = useSelector(state => state.user.allUsers);
+  const id = useSelector(state => state.user.activeId);
+  const modalEdit = useSelector(state => state.user.modalEdit);
+  const [selectedName, setSelectedName] = useState(null);
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    address: '',
+  });
+  console.log(formData);
   useEffect(() => {
     dispatch(fetchUsers());
-  }, [dispatch]);
-
+  }, [modalDel, modalEdit]);
   return (
     <>
       <div className="min-w-[40rem]">
-        <button onClick={() => dispatch(modalAdd())} className="btn btn-add">
+        <button onClick={() => dispatch(toggleModalAdd())} className="btn btn-add">
           Add Data
         </button>
         <table className="w-full  text-center  min-w-max">
@@ -38,13 +57,44 @@ export const Table = ({ modalAdd, modalDelete }) => {
                   <td className=" px-8">{user.email}</td>
                   <td className=" px-4">{user.address}</td>
                   <td className="px-8 ">
-                    <button onClick={() => dispatch(toggleModalEdit(user.id))} className="btn edit">
+                    <button
+                      onClick={() => {
+                        dispatch(toggleModalEdit(user.id));
+                        setFormData({
+                          name: user.name,
+                          phone: user.phone,
+                          email: user.email,
+                          address: user.address,
+                        });
+                      }}
+                      className="btn edit"
+                    >
                       Edit
                     </button>
-                    <button onClick={() => dispatch(modalDelete(user.id))} className="btn del">
+                    <button
+                      onClick={() => {
+                        dispatch(toggleModalDelete(user.id));
+                        setSelectedName(user.name);
+                      }}
+                      className="btn del"
+                    >
                       Delete
                     </button>
                   </td>
+                  <DeleteModal showModal={toggleModalDelete} modal={modalDel} user={selectedName} />
+                  <FormModal
+                    addContact={userData => dispatch(updateContact({ userData, id }))}
+                    showModal={toggleModalEdit}
+                    modal={modalEdit}
+                    formModalData={formData}
+                    title="Edit Data"
+                  />
+                  <FormModal
+                    addContact={addContact}
+                    showModal={toggleModalAdd}
+                    modal={modalAdd}
+                    title="Add Data"
+                  />
                 </tr>
               );
             })}

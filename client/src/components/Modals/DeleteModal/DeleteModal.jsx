@@ -4,13 +4,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact } from '../../../users/userSlice';
 import { activeId } from '../../../users/userSlice';
 
-export const DeleteModal = ({ modal, showModal }) => {
+export const DeleteModal = ({ modal, showModal, user }) => {
   const id = useSelector(state => state.user.activeId);
   const dispatch = useDispatch();
   return (
     <div hidden={modal} className="wrapper">
       <div className="modal-wrapper">
-        <p>Are sure want to delete ?</p>
+        <p>Are sure want to delete ?{user}</p>
         <div className="btn-submit-del">
           <button onClick={() => dispatch(deleteContact(id))} className="sub-del" type="submit">
             Ok
