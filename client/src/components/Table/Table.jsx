@@ -52,10 +52,9 @@ export const Table = () => {
               return (
                 <tr key={user.id} className="text-[10px] lg:text-xl">
                   <td className="px-0 md:px-7">{index + 1}</td>
-                  <td className="px-10 md:px-16">{user.name}</td>
+                  <td className="px-0 md:px-16">{user.name}</td>
                   <td className="px-0 md:px-4">{user.phone}</td>
-                  <td className="w-[10px]  md:px-4">{user.email}</td>
-                  {/* <td className="px-0 bg-red-300 md:px-4">{user.email}</td> */}
+                  <td className=" md:px-4">{user.email}</td>{' '}
                   <td className="px-0 md:px-4">{user.address}</td>
                   <td className="px-0  md:px-8 ">
                     <button
