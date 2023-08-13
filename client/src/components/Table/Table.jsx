@@ -32,13 +32,13 @@ export const Table = () => {
   }, [modalDel, modalEdit]);
   return (
     <>
-      <div className="min-w-[40rem]">
+      <div className="min-w-[29rem] md:min-w-[40rem]">
         <button onClick={() => dispatch(toggleModalAdd())} className="btn btn-add">
           Add Data
         </button>
-        <table className="w-full  text-center  min-w-max">
+        <table className="w-full  text-center  ">
           <thead>
-            <tr>
+            <tr className="text-[10px] lg:text-xl">
               <th>No</th>
               <th>Name</th>
               <th>Phone</th>
@@ -50,13 +50,14 @@ export const Table = () => {
           <tbody>
             {users?.map((user, index) => {
               return (
-                <tr key={user.id}>
-                  <td className=" px-7">{index + 1}</td>
-                  <td className=" px-16">{user.name}</td>
-                  <td className=" px-4">{user.phone}</td>
-                  <td className=" px-8">{user.email}</td>
-                  <td className=" px-4">{user.address}</td>
-                  <td className="px-8 ">
+                <tr key={user.id} className="text-[10px] lg:text-xl">
+                  <td className="px-0 md:px-7">{index + 1}</td>
+                  <td className="px-10 md:px-16">{user.name}</td>
+                  <td className="px-0 md:px-4">{user.phone}</td>
+                  <td className="w-[10px]  md:px-4">{user.email}</td>
+                  {/* <td className="px-0 bg-red-300 md:px-4">{user.email}</td> */}
+                  <td className="px-0 md:px-4">{user.address}</td>
+                  <td className="px-0 md:px-8 ">
                     <button
                       onClick={() => {
                         dispatch(toggleModalEdit(user.id));

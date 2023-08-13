@@ -49,3 +49,40 @@ td {
   background-color: aquamarine;
   padding: 2rem;
 }
+
+/* Responsive Styles */
+
+@media (max-width: 400px) {
+  td {
+    padding: 0px;
+    max-width: 100px;
+    width: 100%;
+  }
+  th {
+    width: 50px;
+  }
+
+  .del,
+  .edit {
+    width: 5px;
+  }
+  .del,
+  .edit {
+    font-size: smaller;
+  }
+
+  .btn {
+    padding-inline: 5px;
+  }
+
+  .btn-add {
+    text-align: center;
+    margin: 10px auto;
+
+    padding: 0.2rem;
+    width: 20%;
+  }
+  .btn-action {
+    padding: 0;
+  }
+}
