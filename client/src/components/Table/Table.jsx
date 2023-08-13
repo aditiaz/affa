@@ -57,7 +57,7 @@ export const Table = () => {
                   <td className="w-[10px]  md:px-4">{user.email}</td>
                   {/* <td className="px-0 bg-red-300 md:px-4">{user.email}</td> */}
                   <td className="px-0 md:px-4">{user.address}</td>
-                  <td className="px-0 md:px-8 ">
+                  <td className="px-0  md:px-8 ">
                     <button
                       onClick={() => {
                         dispatch(toggleModalEdit(user.id));
@@ -77,7 +77,7 @@ export const Table = () => {
                         dispatch(toggleModalDelete(user.id));
                         setSelectedName(user.name);
                       }}
-                      className="btn del"
+                      className="btn del mr-2"
                     >
                       Delete
                     </button>
